@@ -162,7 +162,7 @@
 
     <body>
         <div class="main-block">
-            <form action="/">
+            <form action="connect.php" method="post">
             <h1>ILP MARANG REGISTRATION</h1>
 
             <fieldset>
@@ -173,37 +173,6 @@
                 <div><label>FULL NAME*</label><input type="text" id="name" name="name" required></div>
                 <div><label>IC*</label><input type="text" id="ic" name="ic" required></div>
                 <div><label>Phone*</label><input type="text" id="phone" name="phone" required></div>
-
-                <div>
-                    <label>RELIGION*</label>
-                    <select>
-                    <option value="sp">SILA PILIH</option>
-                    <option value="i">ISLAM</option>
-                    <option value="k">KRISTIAN</option>
-                    <option value="b">BUDDHA</option>
-                    <option value="h">HINDU</option>
-                    </select>
-                </div>
-                <div>
-                    <label>RACE*</label>
-                    <select>
-                    <option value="s">SILA PILIH</option>
-                    <option value="m">MELAYU</option>
-                    <option value="c">CINA</option>
-                    <option value="i">INDIA</option>
-                    <option value="i">IBAN</option>
-                    </select>
-                </div>
-                <div>
-                    <label>PROGRAM*</label>
-                    <select>
-                    <option value="s">SILA PILIH</option>
-                    <option value="p">PLASTIK</option>
-                    <option value="a">AUTO</option>
-                    <option value="o">ONG</option>
-                    <option value="m">MEKA</option>
-                    </select>
-                </div>
                 <div><label>Address*</label><input type="text" name="address" required></div>
                 </div>
             </fieldset>
@@ -218,67 +187,10 @@
                     <div><label>IC</label><input type="text" id="fIc" name="fIc"></div>
                     <div><label>Phone</label><input type="text" id="fPhone" name="fPhone"></div>
 
-                    <div>
-                        <label>RELIGION</label>
-                        <select>
-                        <option value="SILA PILIH">SILA PILIH</option>
-                        <option value="ISLAM">ISLAM</option>
-                        <option value="KRISTIAN">KRISTIAN</option>
-                        <option value="BUDDHA">BUDDHA</option>
-                        <option value="HINDU">HINDU</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>RACE</label>
-                        <select>
-                        <option value="SILA PILIH">SILA PILIH</option>
-                        <option value="MELAYU">MELAYU</option>
-                        <option value="CINA">CINA</option>
-                        <option value="INDIA">INDIA</option>
-                        <option value="IBAN">IBAN</option>
-                        </select>
-                    </div>
                     <div><label>Address</label><input type="text" name="fAddress"></div>
                     <div><label>Occupation</label><input type="text" name="fOccupation"></div>
                     <div><label>SALARY</label><input type="text" name="fSalary"></div>
                     <div><label>OFFICE ADDRESS</label><input type="text" name="fOfficeAddress"></div>
-                </div>
-            </fieldset>
-
-            <!-- Third sections -->
-            <fieldset>
-                <legend>
-                <h3>Mother Details</h3>
-                </legend>
-                <div class="account-details">
-                    <div><label>NAME</label><input type="text" name="mName"></div>
-                    <div><label>IC</label><input type="text" name="mIc"></div>
-                    <div><label>Phone</label><input type="text" name="mPhone"></div>
-
-                    <div>
-                        <label>RELIGION</label>
-                        <select>
-                        <option value="SILA PILIH">SILA PILIH</option>
-                        <option value="ISLAM">ISLAM</option>
-                        <option value="KRISTIAN">KRISTIAN</option>
-                        <option value="BUDDHA">BUDDHA</option>
-                        <option value="HINDU">HINDU</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>RACE</label>
-                        <select>
-                        <option value="SILA PILIH">SILA PILIH</option>
-                        <option value="MELAYU">MELAYU</option>
-                        <option value="CINA">CINA</option>
-                        <option value="INDIA">INDIA</option>
-                        <option value="IBAN">IBAN</option>
-                        </select>
-                    </div>
-                    <div><label>Address</label><input type="text" name="mAddress"></div>
-                    <div><label>Occupation</label><input type="text" name="mOccupation"></div>
-                    <div><label>SALARY</label><input type="text" name="mSalary"></div>
-                    <div><label>OFFICE ADDRESS</label><input type="text" name="mOfficeAddress"></div>
                 </div>
             </fieldset>
 
@@ -306,36 +218,8 @@
             </div>
             </fieldset>
 
-            <button type="submit" name="insert" href="/">Submit</button>
+            <button type="submit" name="insert" id="insert" href="/">Submit</button>
             </form>
         </div>
     </body>
 </html>
-
-<?php
-$connection = mysqli_connect("localhost", "root","");
-$db = mysqli_select_db($connection, 'registrationilp');
-
-if(isset($_POST['insert']))
-{
-    $name = $_POST['name'];
-    $ic = $_POST['ic'];
-    $phone = $_POST['phone'];
-    $religion = $_POST['religion'];
-    $race = $_POST['race'];
-    $address = $_POST['address'];
-    $program = $_POST['program'];
-
-    $query = "INSERT INTO 'personal' ('name', 'ic', 'phone', 'religion', 'race', 'address', 'program') VALUES ('$name', '$ic', '$phone', '$religion', '$race', '$address', '$program')";
-    $query_run = mysqli_query($connection, $query);
-
-    if($query_run)
-    {
-        echo '<script  type="text/javascript"> alert ("Data Saved") </script>';
-    }
-    else
-    {
-        echo '<script  type="text/javascript"> alert ("Data Not Saved") </script>';
-    }
-}
-?>
