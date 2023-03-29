@@ -9,17 +9,15 @@ if(isset($_POST['insert']))
     $phone = $_POST['phone'];
     $address = $_POST['address'];
 
-    $fName = $_POST['fName'];
-    $fIc = $_POST['fIc'];
-    $fPhone = $_POST['fPhone'];
-    $fAddress = $_POST['fAddress'];
-    $fOccupation = $_POST['fOccupation'];
-    $fSalary = $_POST['fSalary'];
-    $fOfficeAddress = $_POST['fOfficeAddress'];
+    $fname = $_POST['fName'];
+    $fic = $_POST['fIc'];
+    $fphone = $_POST['fPhone'];
+    $faddress = $_POST['fAddress'];
+    $foccupation = $_POST['fOccupation'];
+    $fsalary = $_POST['fSalary'];
+    $fofficeaddress = $_POST['fOfficeAddress'];
 
-    $query = "INSERT INTO `testest` (`name`, `ic`, `phone`,`address`) VALUES ('$name', '$ic', '$phone','$address')";
-
-    $query = "INSERT INTO `father` (`fName`, `fIc`, `fPhone`,`fAddress`, `fOccupation`, `fSalary`, `fOfficeAddress` ) VALUES ('$name', '$ic', '$phone','$address', '$occupation', '$salary', '$officeaddress')";
+    $query = "INSERT INTO `testest` (`name`, `ic`, `phone`,`address`, `fName`, `fIc`, `fPhone`,`fAddress`, `fOccupation`, `fSalary`, `fOfficeAddress`) VALUES ('$name', '$ic', '$phone','$address', '$fname', '$fic', '$fphone','$faddress', '$foccupation', '$fsalary', '$fofficeaddress')";
 
     $query_run = mysqli_query($connection, $query);
 
@@ -31,6 +29,6 @@ if(isset($_POST['insert']))
     {
         echo '<script  type="text/javascript"> alert ("Data Not Saved") </script>';
     }
-}
 
+}
 ?>
